@@ -1,7 +1,19 @@
-const ProductsList = () => {
+import { Product } from "../@Types/products";
+
+interface ProductsListProps {
+  products: Product[];
+}
+
+const ProductsList = ({ products }: ProductsListProps) => {
   return (
     <ul>
-        <li> item 1 </li>
+      {products.map((item: Product) => (
+        <li key={item.id} className="my-5"> 
+          {item.productName} 
+          {item.description}
+          {item.price}
+        </li>
+      ))}
     </ul>
   )
 }

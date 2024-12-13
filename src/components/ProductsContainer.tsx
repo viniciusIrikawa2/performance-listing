@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import ProductsList from "./ProductsList"
 import { getAllProducts } from "../services/products";
+import { ProductList } from "../@Types/products";
 
 const ProductsContainer = () => {
-  const [products, setProducts] = useState();
-
-  console.log(products);
+  const [products, setProducts] = useState<ProductList>([]);
   
   useEffect(() => {
     const fetchProducts = async () => {
@@ -16,7 +15,7 @@ const ProductsContainer = () => {
   }, []);
 
   return (
-    <ProductsList/>
+    <ProductsList products={products}/>
   )
 }
 
