@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "SKU": "3bf8c835-73ba-40b0-9dda-c662d3e99444",
+      "productName": "Incredible Plastic Fish",
+      "description": "Intelligent Keyboard designed with Rubber for liquid performance",
+      "price": "494.09"
+    },
+    {
+      "SKU": "14aabab6-dd90-45ad-9870-691c8116b26c",
+      "productName": "Gorgeous Soft Pants",
+      "description": "Experience the green brilliance of our Salad, perfect for sore environments",
+      "price": "369.79"
+    },
+    {
+      "SKU": "17c32fe2-5461-420c-93a8-6f21d2aecba8",
+      "productName": "Small Cotton Chicken",
+      "description": "Featuring Protactinium-enhanced technology, our Bike offers unparalleled nervous performance",
+      "price": "421.79"
+    },
+    {
+      "SKU": "5654f713-b4aa-4e76-a5b1-07ad5c5c6ff2",
+      "productName": "Handmade Fresh Ball",
+      "description": "The azure Gloves combines Eswatini aesthetics with Protactinium-based durability",
+      "price": "488.69"
+    },
+    {
+      "SKU": "e77478d6-00ee-49f1-aa44-73f3d9821e32",
+      "productName": "Sleek Wooden Mouse",
+      "description": "Professional-grade Bacon perfect for both training and recreational use",
+      "price": "406.30"
+    }
+  ]
+}

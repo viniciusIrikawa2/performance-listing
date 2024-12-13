@@ -1,4 +1,5 @@
 import { faker } from "@faker-js/faker";
+import { writeFileSync } from "fs";
 
 export const createRandomProduct = () => {
     return {
@@ -12,3 +13,6 @@ export const createRandomProduct = () => {
 export const products = faker.helpers.multiple(createRandomProduct, {
     count: 5
 });
+
+writeFileSync('products.json', JSON.stringify({ products }, null, 2));
+console.log('products.json file created successfully!');
