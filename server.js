@@ -12,7 +12,7 @@ export const createRandomProduct = () => {
 };
 
 export const products = faker.helpers.multiple(createRandomProduct, {
-  count: 10000,
+  count: 100,
 });
 
 writeFileSync("products.json", JSON.stringify({ products }, null, 2));
