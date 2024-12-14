@@ -6,7 +6,8 @@ export const createRandomProduct = () => {
         SKU: faker.string.uuid(),
         productName: faker.commerce.productName(),
         description: faker.commerce.productDescription(),
-        price: faker.commerce.price()
+        price: faker.commerce.price(),
+        image: faker.image.avatar(),
     }
 };
 

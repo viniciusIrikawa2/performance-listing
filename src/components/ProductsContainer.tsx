@@ -5,6 +5,7 @@ import { ProductList } from "../@Types/products";
 
 const ProductsContainer = () => {
   const [products, setProducts] = useState<ProductList>([]);
+  console.log(products);
   
   useEffect(() => {
     const fetchProducts = async () => {
