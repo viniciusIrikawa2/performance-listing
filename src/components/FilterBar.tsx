@@ -1,18 +1,9 @@
-import { useState } from "react";
-
-interface IFilter {
-    minPrice: number;
-    maxPrice: number;
-}
-
-type Input = 'minPrice' | 'maxPrice'
+import { useContext } from "react";
+import { Input } from "../@Types/filter";
+import { Context } from "../Context/ProductsContext";
 
 const FilterBar = () => {
-    const initialValue: IFilter = {
-        minPrice: 0,
-        maxPrice: 0
-    }
-    const [filter, setFilter] = useState(initialValue);
+    const { filter, setFilter } = useContext(Context);
 
     const handleChange = (evt: React.ChangeEvent<HTMLInputElement>, type: Input) => {
         const { value } = evt.target
@@ -22,7 +13,7 @@ const FilterBar = () => {
             [type]: Number(value)
         })
     };
-
+    
     return (
         <div className="flex items-center justify-center mx-auto my-10">
             <div className="px-6 py-3 rounded-full bg-white">
