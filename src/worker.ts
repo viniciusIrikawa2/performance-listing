@@ -1,7 +1,17 @@
+import { Product } from "./@Types/products";
+
 onmessage = function (event) {
-    const { products, rangePrice } = event.data;
+  const { products, filter } = event.data;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const filteredProducts = products.filter((product: any) => product.price)
+  const parsePrice = (price: string | number) => {
+    const parsedPrice = Number(price);
+    return isNaN(parsedPrice) ? 0 : parsedPrice;
+  };
 
-}
+  const processedProducts = products.filter((product: Product) => {
+    const productPrice = parsePrice(product.price);
+    return productPrice >= filter.minPrice && productPrice <= filter.maxPrice;
+  });
+
+  postMessage(processedProducts);
+};
