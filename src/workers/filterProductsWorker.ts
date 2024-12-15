@@ -1,4 +1,4 @@
-import { Product } from "./@Types/products";
+import { Product } from "../@Types/products";
 
 onmessage = function (event) {
   const { products, filter } = event.data;
