@@ -1,10 +1,10 @@
+import { useContext } from "react";
 import { Product } from "../@Types/products";
+import { ProductsContext } from "../Context/ProductsContext";
 
-interface ProductsListProps {
-  products: Product[];
-}
+const ProductsList = () => {
+  const { products } = useContext(ProductsContext);
 
-const ProductsList = ({ products }: ProductsListProps) => {
   return (
     <ul className="grid grid-cols-5 gap-3">
       {products.map((item: Product) => (

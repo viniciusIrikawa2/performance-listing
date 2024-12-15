@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import ProductsList from "./ProductsList"
 import { getAllProducts } from "../services/products";
-import { ProductList } from "../@Types/products";
+import { ProductsContext } from "../Context/ProductsContext";
 
 const ProductsContainer = () => {
-  const [products, setProducts] = useState<ProductList>([]);
-  console.log(products);
+  const {setProducts} = useContext(ProductsContext); 
   
   useEffect(() => {
     const fetchProducts = async () => {
@@ -16,7 +15,7 @@ const ProductsContainer = () => {
   }, []);
 
   return (
-    <ProductsList products={products}/>
+    <ProductsList/>
   )
 }
 
