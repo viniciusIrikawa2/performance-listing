@@ -1,31 +1,25 @@
 import { createContext, useState, ReactNode } from 'react';
-import { IFilter } from '../@Types/filter';
+import { ProductList } from '../@Types/products';
 
-interface FilterProps {
+interface ProductsContextType {
+    products: ProductList;
+    setProducts: React.Dispatch<React.SetStateAction<ProductList>>;
+}
+interface ProductsProps {
     children: ReactNode;
 }
 
-interface FilterContextType {
-    filter: IFilter;
-    setFilter:  React.Dispatch<React.SetStateAction<IFilter>>;
-}
-
-const initialValue: IFilter = {
-    minPrice: 0,
-    maxPrice: 0
-}
-
-export const Context = createContext<FilterContextType>({
-    filter: initialValue,
-    setFilter: () => {},
+export const ProductsContext = createContext<ProductsContextType>({
+    products: [],
+    setProducts: () => {},
 });
 
-export const ProductsProvider = ({ children }: FilterProps) => {
-    const [filter, setFilter] = useState(initialValue);
+export const ProductsProvider = ({ children }: ProductsProps) => {
+    const [products, setProducts] = useState<ProductList>([]);
 
     return (
-        <Context.Provider value={{ filter, setFilter }}>
+        <ProductsContext.Provider value={{ products, setProducts }}>
             {children}
-        </Context.Provider>
+        </ProductsContext.Provider>
     );
 };
