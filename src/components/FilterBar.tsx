@@ -2,14 +2,14 @@ import { useContext, useMemo } from "react";
 import { Input } from "../@Types/filter";
 import { Context } from "../Context/FilterContext";
 import { ProductsContext } from "../Context/ProductsContext";
+import { FilteredItemsContext } from "../Context/FilteredItemsContext";
 
 const FilterBar = () => {
   const { filter, setFilter } = useContext(Context);
-  const { products, setProducts } = useContext(ProductsContext);
+  const { products } = useContext(ProductsContext);
+  const { setFilteredItems } = useContext(FilteredItemsContext);
 
-  const worker: Worker = useMemo(() => {
-    return new Worker(new URL("/src/worker.ts", import.meta.url));
-  }, []);
+  const worker: Worker = useMemo(() => new Worker(new URL("/src/workers/filterProductsWorker.ts", import.meta.url)), []);
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>, type: Input) => {
     const { value } = evt.target;
@@ -20,14 +20,9 @@ const FilterBar = () => {
     });
   };
 
-  const handleSearch = () => {
-    worker.postMessage({ products, filter });
-  };
+  const handleSearch = () => worker.postMessage({ products, filter });
 
-  // TODO: REMOVE THIS LINE
-  worker.onmessage = (event) => {
-    setProducts(event.data);
-  };
+  worker.onmessage = (event) => setFilteredItems(event.data);
 
   return (
     <div className="flex items-center justify-center mx-auto my-10">

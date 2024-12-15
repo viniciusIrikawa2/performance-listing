@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { Product } from "../@Types/products";
-import { ProductsContext } from "../Context/ProductsContext";
+import { FilteredItemsContext } from "../Context/FilteredItemsContext";
 
 const ProductsList = () => {
-  const { products } = useContext(ProductsContext);
-
+  const { filteredItems } = useContext(FilteredItemsContext);
+ 
   return (
     <ul className="grid grid-cols-5 gap-3">
-      {products.map((item: Product) => (
+      {filteredItems.map((item: Product) => (
         <li key={item.SKU} className="my-5 flex flex-col justify-around border-2 bg-gradient-to-t from-[#dd3e3e] to-[#be1464] rounded-tr-[25px] rounded-br-[60px] rounded-bl-[25px] rounded-tl-[60px] py-6 px-6">
           <h2 className="font-bold text-lg text-white text-center mb-5">{item.productName}</h2>
           <div className="relative">
