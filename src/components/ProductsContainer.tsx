@@ -6,7 +6,7 @@ import { FilteredItemsContext } from "../Context/FilteredItemsContext";
 
 const ProductsContainer = () => {
   const {setProducts} = useContext(ProductsContext); 
-  const { setFilteredItems } = useContext(FilteredItemsContext);
+  const { filteredItems, setFilteredItems } = useContext(FilteredItemsContext);
   
   useEffect(() => {
     const fetchProducts = async () => {
@@ -18,7 +18,7 @@ const ProductsContainer = () => {
   }, []);
 
   return (
-    <ProductsList/>
+    <ProductsList filteredItems={filteredItems}/>
   )
 }
 

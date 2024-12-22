@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import { Product } from "../@Types/products";
-import { FilteredItemsContext } from "../Context/FilteredItemsContext";
+import { Product, ProductList } from "../@Types/products";
+interface ProductsListProps {
+  filteredItems: ProductList;
+}
 
-const ProductsList = () => {
-  const { filteredItems } = useContext(FilteredItemsContext);
- 
+const ProductsList = ({ filteredItems }: ProductsListProps) => {
   return (
     <>
       <ul className="grid grid-cols-5 gap-3">
