@@ -6,7 +6,7 @@ interface ProductsListProps {
 }
 
 const ProductsList = ({ filteredItems }: ProductsListProps) => {
-  const columnCount = 6;
+  const columnCount = Math.floor(window.innerWidth / 250);
   const itemWidth = 250;
   const itemHeight = 420;
 
@@ -49,8 +49,8 @@ const ProductsList = ({ filteredItems }: ProductsListProps) => {
           rowCount={Math.ceil(filteredItems.length / columnCount)}
           columnWidth={itemWidth}
           rowHeight={itemHeight}
-          height={600}
-          width={1500}
+          height={window.innerHeight - 100}
+          width={window.innerWidth - 20}
         >
           {Cell}
         </FixedSizeGrid>

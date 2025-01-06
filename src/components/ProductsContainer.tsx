@@ -7,6 +7,7 @@ import { FilteredItemsContext } from "../Context/FilteredItemsContext";
 const ProductsContainer = () => {
   const {setProducts} = useContext(ProductsContext); 
   const { filteredItems, setFilteredItems } = useContext(FilteredItemsContext);
+  console.log(filteredItems);
   
   useEffect(() => {
     const fetchProducts = async () => {
